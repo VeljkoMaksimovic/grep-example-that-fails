@@ -11,4 +11,5 @@ blocks:
         - name: Grep command fails
           commands:
             - checkout
+            - chmod +x test.sh
             - ./test.sh
