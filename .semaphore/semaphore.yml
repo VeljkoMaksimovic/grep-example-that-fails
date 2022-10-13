@@ -13,3 +13,4 @@ blocks:
             - checkout
             - chmod +x test.sh
             - ./test.sh
+            - return 0
