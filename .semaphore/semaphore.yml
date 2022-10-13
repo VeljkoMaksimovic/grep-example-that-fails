@@ -10,4 +10,4 @@ blocks:
       jobs:
         - name: go get & build
           commands:
-            - exit 0
+            - return 0
