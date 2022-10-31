@@ -10,7 +10,7 @@ blocks:
       jobs:
         - name: Grep command fails
           commands:
-            - checkout
-            - chmod +x test.sh
-            - ./test.sh
-            - return 0
+            - echo $TEST_ENV
+      env_vars:
+        - name: TEST_ENV
+          value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
