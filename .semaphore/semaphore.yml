@@ -8,9 +8,19 @@ blocks:
   - name: Build project
     task:
       jobs:
-        - name: Grep command fails
-          commands:
-            - echo $TEST_ENV
-      env_vars:
-        - name: TEST_ENV
-          value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
+        - commands:
+            - echo $TESTS_TO_RUN
+          env_vars:
+            - name: TESTS_TO_RUN
+              value: TestPrivateLinkAzureE2E
+            - name: CLOUD
+              value: azure
+            - name: REGION
+              value: centralus
+          name: Azure Setup, Azure test, Azure release
+        - commands:
+            - echo $TESTS_TO_RUN
+          env_vars:
+            - name: TESTS_TO_RUN
+              value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
+          name: Aws Setup, Aws test, Aws release
