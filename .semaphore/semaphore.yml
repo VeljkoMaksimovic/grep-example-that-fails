@@ -11,7 +11,7 @@ blocks:
         - commands:
             - echo $TESTS_TO_RUN
             - go version
-            - ls
+            - checkout
             - go run main.go
           env_vars:
             - name: TESTS_TO_RUN
@@ -24,6 +24,7 @@ blocks:
         - commands:
             - echo $TESTS_TO_RUN
             - go version
+            - checkout
             - go run main.go
           env_vars:
             - name: TESTS_TO_RUN
