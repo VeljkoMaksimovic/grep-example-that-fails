@@ -11,6 +11,7 @@ blocks:
         - commands:
             - echo $TESTS_TO_RUN
             - go version
+            - ls
             - go run main.go
           env_vars:
             - name: TESTS_TO_RUN
