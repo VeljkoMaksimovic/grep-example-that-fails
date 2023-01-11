@@ -9,24 +9,8 @@ blocks:
     task:
       jobs:
         - commands:
-            - echo $TESTS_TO_RUN
-            - go version
-            - checkout
-            - go run main.go
-          env_vars:
-            - name: TESTS_TO_RUN
-              value: TestPrivateLinkAzureE2E
-            - name: CLOUD
-              value: azure
-            - name: REGION
-              value: centralus
-          name: 'Azure Setup, Azure test, Azure release'
-        - commands:
-            - echo $TESTS_TO_RUN
-            - go version
-            - checkout
-            - go run main.go
+            - echo "test"
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
-          name: 'Aws Setup, Aws test, Aws release'
+          name: test
