@@ -9,7 +9,7 @@ blocks:
     task:
       jobs:
         - commands:
-            - echo "test"
+            - echo "test22"
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
