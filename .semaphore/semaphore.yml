@@ -17,5 +17,21 @@ blocks:
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
+    parameters:
+      env_vars:
+        - name: CANARY_NAME
+          required: true
+          default_value: aleks
+          description: Canary to deploy to
+          options:
+            - "aleks"
+            - "igor"
+            - "nick"
+            - "radwo"
+            - "ropsi"
+            - "ralopes"
+            - "amir"
+            - "veljko"
+            - "mattrym"
     auto_promote:
       when: branch = 'master' AND result = 'passed'
