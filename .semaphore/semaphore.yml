@@ -14,3 +14,8 @@ blocks:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
           name: test
+promotions:
+  - name: Promotion 1
+    pipeline_file: pipeline_3.yml
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'
