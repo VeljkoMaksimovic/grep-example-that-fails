@@ -2,8 +2,8 @@ version: v1.0
 name: Semaphore Go CI examplee
 agent:
   machine:
-    type: s1-vm-macOS
-    os_image: ''
+    type: e1-standard-2
+    os_image: ubuntu2004
 blocks:
   - name: Build project
     task:
@@ -24,14 +24,14 @@ promotions:
           default_value: aleks
           description: Canary to deploy to
           options:
-            - "aleks"
-            - "igor"
-            - "nick"
-            - "radwo"
-            - "ropsi"
-            - "ralopes"
-            - "amir"
-            - "veljko"
-            - "mattrym"
+            - aleks
+            - igor
+            - nick
+            - radwo
+            - ropsi
+            - ralopes
+            - amir
+            - veljko
+            - mattrym
     auto_promote:
       when: branch = 'master' AND result = 'passed'
