@@ -9,7 +9,8 @@ blocks:
     task:
       jobs:
         - commands:
-            - sem-context put a123=3
+            - sem-context put test2=3333
+            - echo $?
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow

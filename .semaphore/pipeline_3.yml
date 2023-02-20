@@ -10,5 +10,6 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - sem-context get a123
-            - echo $(sem-context get a123)
+            - sem-context get test2
+            - echo $?
+            - echo $(sem-context get test2)
