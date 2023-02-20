@@ -9,7 +9,7 @@ blocks:
     task:
       jobs:
         - commands:
-            - sem-context put a 3
+            - sem-context put a=3
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
