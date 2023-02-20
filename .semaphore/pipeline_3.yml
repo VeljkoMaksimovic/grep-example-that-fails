@@ -11,4 +11,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - sem get a123
-            - echo $(sem get a123)
+            - echo $(sem-context get a123)
