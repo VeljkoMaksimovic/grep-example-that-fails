@@ -15,8 +15,6 @@ blocks:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
           name: test
-      secrets:
-        - name: credentials
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
