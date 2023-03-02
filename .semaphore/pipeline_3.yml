@@ -10,6 +10,8 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - sem-context get test2
+            - sem-context get test8
             - echo $?
-            - echo $(sem-context get test2)
+            - echo $(sem-context get test8)
+            - sem context put test2=123
+            - sem context get test2
