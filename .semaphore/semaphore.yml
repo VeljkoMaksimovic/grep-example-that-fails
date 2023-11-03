@@ -7,7 +7,7 @@ agent:
 blocks:
   - name: Build prod
     run:
-      when: 'change_in(''/apps/landing-mx/'', {pipeline_file: ''ignore''})'
+      when: 'change_in(''/apps/landing-mx/'', {pipeline_file: ''ignore'', on_tags: false})'
     task:
       jobs:
         - commands:
