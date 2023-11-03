@@ -7,19 +7,20 @@ agent:
 blocks:
   - name: Build prod
     run:
-      when: "change_in('/apps/landing-mx/', {pipeline_file: 'ignore'})"
+      when: 'change_in(''/apps/landing-mx/'', {pipeline_file: ''ignore''})'
     task:
       jobs:
         - commands:
             - echo "TEST"
           name: test
+    dependencies: []
   - name: Build preprod
     task:
       jobs:
         - commands:
             - echo "TEST"
           name: test
-
+    dependencies: []
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
