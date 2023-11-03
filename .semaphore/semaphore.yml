@@ -5,15 +5,21 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Build project
+  - name: Build prod
+    run:
+      when: "change_in('/apps/landing-mx/', {pipeline_file: 'ignore'})"
     task:
       jobs:
         - commands:
             - echo "TEST"
-          env_vars:
-            - name: TESTS_TO_RUN
-              value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
           name: test
+  - name: Build preprod
+    task:
+      jobs:
+        - commands:
+            - echo "TEST"
+          name: test
+
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
@@ -32,6 +38,3 @@ promotions:
             - ralopes
             - amir
             - veljko
-            - mattrym
-    auto_promote:
-      when: branch = 'master' AND result = 'passed'
