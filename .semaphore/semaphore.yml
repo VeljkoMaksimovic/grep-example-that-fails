@@ -27,7 +27,7 @@ after_pipeline:
     jobs:
       - name: after pipeline
         commands:
-          - artifact pull workflow README.md
+          - echo $(artifact pull workflow README.md)
           - ls -la
 promotions:
   - name: Promotion 1
