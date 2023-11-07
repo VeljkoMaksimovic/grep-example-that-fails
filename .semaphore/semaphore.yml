@@ -12,7 +12,7 @@ blocks:
       jobs:
         - commands:
             - echo "TEST"
-            - artifact push workflow ./README.md
+            - echo $(artifact push workflow ./README.md)
           name: test
     dependencies: []
   - name: Build preprod
