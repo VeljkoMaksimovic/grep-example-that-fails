@@ -12,6 +12,7 @@ blocks:
       jobs:
         - commands:
             - echo "TEST"
+            - artifact push workflow ./README.md
           name: test
     dependencies: []
   - name: Build preprod
@@ -19,10 +20,15 @@ blocks:
       jobs:
         - commands:
             - echo "TEST"
-          name: test
+          name: random block always running
     dependencies: []
-    run:
-      when: tag =~ '.*'
+after_pipeline:
+  task:
+    jobs:
+      - name: after pipeline
+        commands:
+          - artifact pull workflow README.md
+          - ls -la
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
