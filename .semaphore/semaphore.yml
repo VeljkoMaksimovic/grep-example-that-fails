@@ -11,6 +11,7 @@ blocks:
     task:
       jobs:
         - commands:
+            - checkout
             - echo "TEST"
             - echo $(artifact push workflow ./README.md)
           name: test
