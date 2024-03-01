@@ -3,33 +3,19 @@ name: Semaphore Go CI examplee
 agent:
   machine:
     type: e1-standard-2
-    os_image: ubuntu1804
+    os_image: ubuntu2004
 blocks:
-  - name: Build prod
-    run:
-      when: 'change_in(''/apps/landing-mx/'', {pipeline_file: ''ignore'', on_tags: true})'
+  - name: Build project
     task:
       jobs:
         - commands:
-            - checkout
-            - echo "TEST"
-            - echo $(artifact push workflow ./README.md)
+            - sem-context put test2=3333
+            - sleep 40
+            - echo $?
+          env_vars:
+            - name: TESTS_TO_RUN
+              value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
           name: test
-    dependencies: []
-  - name: Build preprod
-    task:
-      jobs:
-        - commands:
-            - echo "TEST"
-          name: random block always running
-    dependencies: []
-after_pipeline:
-  task:
-    jobs:
-      - name: after pipeline
-        commands:
-          - echo $(artifact pull workflow README.md)
-          - ls -la
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
@@ -48,3 +34,6 @@ promotions:
             - ralopes
             - amir
             - veljko
+            - mattrym
+    auto_promote:
+      when: branch = 'master' AND result = 'passed'

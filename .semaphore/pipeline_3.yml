@@ -12,6 +12,7 @@ blocks:
           commands:
             - sem-context get test0
             - echo $?
+            - sleep 40
             - echo $(sem-context get test)
             - sem-context put test2=123
             - sem-context get test2
