@@ -1,0 +1,6 @@
+echo "test"
+
+echo $SEMAPHORE_GIT_WORKING_BRANCH
+[[ -z $SEMAPHORE_GIT_WORKING_BRANCH ]] && { echo "Exiting. This script must be run on CI."; exit 1; } || true
+
+echo "2"

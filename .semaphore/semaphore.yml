@@ -8,10 +8,7 @@ blocks:
   - name: Build project
     task:
       jobs:
-        - commands:
-            - sem-context put test2=3333
-            - sleep 40
-            - echo $?
+        - commands_file: commands
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
