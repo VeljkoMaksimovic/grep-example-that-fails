@@ -12,7 +12,9 @@ blocks:
           env_vars:
             - name: TESTS_TO_RUN
               value: TestPrivateLinkAwsE2E/TestPrivateAwsClientWorkflow
-          name: test
+          name: test3
+          commands:
+            - echo "test"
 promotions:
   - name: Promotion 1
     pipeline_file: pipeline_3.yml
