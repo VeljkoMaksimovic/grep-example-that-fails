@@ -2,49 +2,15 @@ version: v1.0
 name: Semaphore Go CI examplee
 agent:
   machine:
-    type: e1-standard-2
-    os_image: ubuntu1804
+    type: s1-kubernetes
+  containers:
+    - name: main
+      image: 'ubuntu:jammy'
 blocks:
   - name: Build prod
-    run:
-      when: 'change_in(''/apps/landing-mx/'', {pipeline_file: ''ignore'', on_tags: true})'
     task:
       jobs:
         - commands:
-            - checkout
             - echo "TEST"
-            - echo $(artifact push workflow ./README.md)
           name: test
     dependencies: []
-  - name: Build preprod
-    task:
-      jobs:
-        - commands:
-            - echo "TEST"
-          name: random block always running
-    dependencies: []
-after_pipeline:
-  task:
-    jobs:
-      - name: after pipeline
-        commands:
-          - echo $(artifact pull workflow README.md)
-          - ls -la
-promotions:
-  - name: Promotion 1
-    pipeline_file: pipeline_3.yml
-    parameters:
-      env_vars:
-        - name: CANARY_NAME
-          required: true
-          default_value: aleks
-          description: Canary to deploy to
-          options:
-            - aleks
-            - igor
-            - nick
-            - radwo
-            - ropsi
-            - ralopes
-            - amir
-            - veljko
