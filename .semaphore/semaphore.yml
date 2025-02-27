@@ -2,19 +2,18 @@ version: v1.0
 name: Semaphore Go CI examplee
 agent:
   machine:
-    type: f1-standard-2
-    os_image: ubuntu2004
-  containers:
-    - name: main
-      image: 'ubuntu:jammy'
+    type: e2-standard-2
+    os_image: ubuntu2204
 blocks:
   - name: Build prod
     task:
       jobs:
         - commands:
-            - 'if true; then \
-                echo "The latest merged release PR was already released" \
-                export SEMAPHORE_JOB_RESULT=passed; return 130
-              fi'
-          name: test
+            - echo $SEMAPHORE_JOB_RESULT
+            - | 
+              if true; then
+                echo "The latest merged release PR was already released"
+                export SEMAPHORE_JOB_RESULT=passed; return 130 
+              fi
+            - echo $SEMAPHORE_JOB_RESULT
     dependencies: []
