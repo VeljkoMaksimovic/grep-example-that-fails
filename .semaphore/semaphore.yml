@@ -12,6 +12,9 @@ blocks:
     task:
       jobs:
         - commands:
-            - echo "TEST"
+            - 'if true; then \
+                echo "The latest merged release PR was already released" \
+                export SEMAPHORE_JOB_RESULT=passed; return 130
+              fi'
           name: test
     dependencies: []
