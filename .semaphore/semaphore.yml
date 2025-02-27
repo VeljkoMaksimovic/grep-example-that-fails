@@ -2,7 +2,8 @@ version: v1.0
 name: Semaphore Go CI examplee
 agent:
   machine:
-    type: s1-kubernetes
+    type: e1-standard-2
+    os_image: ubuntu2004
   containers:
     - name: main
       image: 'ubuntu:jammy'
